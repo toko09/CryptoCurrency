@@ -1,0 +1,9 @@
+nav{
+    font-size: x-large; 
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    justify-content: space-between;
+}
+#global-info{
+    margin-right: 50px;
+}

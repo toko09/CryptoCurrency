@@ -1,0 +1,45 @@
+<nav
+  class="navbar navbar-expand-lg p-1"
+  [ngClass]="!theme ? 'navbar-dark bg-dark' : 'navbar-light bg-light'"
+>
+  <a class="navbar-brand" href="#"
+    ><i class="fa-solid fa-money-bill-transfer"> CryptoToday</i></a
+  >
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="#">Home</a>
+      <a class="nav-item nav-link" href="#">News</a>
+      <a class="nav-item nav-link" href="#">Rank</a>
+      <a class="nav-item nav-link" href="#">Exchange</a>
+    </div>
+  </div>
+  <div class="form-inline my-2 my-lg-0 d-flex flex-row">
+    <button class="btn nav-item float-end" (click)="changeTheme()">
+      <ng-container *ngIf="theme">
+        <i class="fa-solid fa-moon"></i>
+      </ng-container>
+      <ng-container *ngIf="!theme">
+        <i style="color: white" class="fa-regular fa-sun"></i>
+      </ng-container>
+    </button>
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" />
+    <button class="btn btn-outline-success my-2 my-sm-0" type="button">
+      Search
+    </button>
+  </div>
+</nav>
+
+<ng-container *ngIf="globalInfo$ | async as info">
+  <nav
+    class="navbar-expand p-1 "
+    [ngClass]="!theme ? 'navbar-dark bg-dark' : 'navbar-light bg-light'"
+  >
+      <div class="navbar-nav" style="font-size: 0.9rem; gap: 20px;">
+        <a class="nav-item nav-link" href="#">Cryptocurrencies: <span id="globan-info">{{ info.coins_count }} </span>  </a>
+        <a class="nav-item nav-link" href="#"> Markets: <span id="globan-info">{{ info.active_markets }}</span></a>
+        <a class="nav-item nav-link" href="#"> Market Cap:  <span id="globan-info">{{ info.total_mcap | currency: "EUR" }}</span></a>
+        <a class="nav-item nav-link" href="#">BTC Dominance: <span id="globan-info">{{info.btc_d}}%</span></a>
+        <a class="nav-item nav-link" href="#">ETH Dominance: <span id="globan-info">{{info.eth_d}}%</span></a>
+      </div>
+  </nav>
+</ng-container>

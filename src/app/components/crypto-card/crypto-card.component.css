@@ -1,0 +1,54 @@
+.msupply{
+    border-bottom: 1px dashed;
+    /* text-decoration: none; */
+}
+.msupply:hover {
+    cursor: help;
+    position: relative;
+  }
+.msupply span {
+    display: none;
+  }
+.msupply:hover span {
+    color: black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: smaller;
+    border: #666 2px solid;
+    padding: 5px 20px 5px 5px;
+    display: block;
+    z-index: 100;
+    background: #e3e3e3;
+    left: 0px;
+    margin: 15px;
+    width: 300px;
+    position: absolute;
+    top: 15px;
+    /* text-decoration: none; */
+  }
+
+.csupply{
+    border-bottom: 1px dashed;
+    /* text-decoration: none; */
+}
+.csupply:hover {
+    cursor: help;
+    position: relative;
+  }
+.csupply span {
+    display: none;
+  }
+.csupply:hover span {
+    color: black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: smaller;
+    border: #666 2px solid;
+    padding: 5px 20px 5px 5px;
+    display: block;
+    z-index: 100;
+    background: #e3e3e3;
+    left: -300px;
+    margin: 15px;
+    width: 300px;
+    position: absolute;
+    top: 15px;
+  }
