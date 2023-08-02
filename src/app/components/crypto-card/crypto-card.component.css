@@ -52,3 +52,6 @@
     position: absolute;
     top: 15px;
   }
+  table{
+    margin-bottom: 0;
+  }

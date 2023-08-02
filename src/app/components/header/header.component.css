@@ -3,7 +3,10 @@ nav{
     border-bottom: 1px solid black;
     border-top: 1px solid black;
     justify-content: space-between;
+    max-width: 100%;
 }
-#global-info{
-    margin-right: 50px;
+@media (max-width:800px){
+    nav{
+        width: 1000px
+    }
 }

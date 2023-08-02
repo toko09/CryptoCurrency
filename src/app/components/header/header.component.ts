@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import {  ActivatedRoute, Router } from '@angular/router';
 import { CryptoService } from 'src/app/services/crypto.service';
 
 @Component({
@@ -8,15 +9,25 @@ import { CryptoService } from 'src/app/services/crypto.service';
 })
 export class HeaderComponent {
   theme = false;
-  searchText = '';
-  constructor(private cryptoService: CryptoService) { }
+  searchText: string = '';
+  width: number = 0;
+  constructor(private cryptoService: CryptoService, private router: Router, private activatedRoute: ActivatedRoute) {
+    this.cryptoService.width$.subscribe((width) => {
+      this.width = width
+     })
+   }
 
   globalInfo$ = this.cryptoService.globalInfo$;
 
   changeTheme() { 
     this.theme = this.cryptoService.changeTheme(this.theme);
     
+  } 
+  getSearch() {
+    this.cryptoService.getSearch(this.searchText);
+    this.router.navigateByUrl(`search/${this.searchText}`);
   }
+
   
 
 }

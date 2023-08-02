@@ -1,0 +1,17 @@
+<div class="maindiv" [ngClass]="!(theme$ | async) ? 'bg-dark text-white' : ''">
+  <ng-container *ngIf="searchedCrypto$ | async as crypto">
+    <div class="card"[ngClass]="!(theme$ | async) ? 'bg-info' : ''" style="width: 18rem">
+      <img
+        class="card-img-top"
+        [src]="linkToSvg + crypto.symbol.toLowerCase() + '.svg'"
+        alt="Card image cap"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ crypto.name }} - {{crypto.symbol}}</h5>
+        <h5 class="card-text border-bottom border-dark">Price:{{ crypto.price_usd | currency }}</h5>
+        <h6 class="card-text border-bottom border-dark"> Market cap: {{ crypto.market_cap_usd | currency }}</h6>
+        <h6 class="card-text border-bottom border-dark">Total supply:{{ crypto.csupply }}</h6>
+      </div>
+    </div>
+  </ng-container>
+</div>

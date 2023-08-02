@@ -26,11 +26,7 @@ export interface cryptoCurrency {
     volume24a: number
 }
 
-export interface rank {
-    start:number,
-    limit:number 
 
-}
 
 export interface globalInfo {
     coins_count: number;
@@ -44,4 +40,10 @@ export interface globalInfo {
     avg_change_percent: string;
     volume_ath: number;
     mcap_ath: number;
-  }
+}
+export interface exchange { 
+    asset_id_base:string,
+asset_id_quote:string,
+rate:number,
+time:string,
+}

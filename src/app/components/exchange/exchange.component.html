@@ -1,0 +1,32 @@
+<div class="maindiv" [ngClass]="!(theme$ | async) ? 'bg-dark text-white' : ''">
+  <h1>Enter currencies</h1>
+  <div class="input-group">
+    <input [(ngModel)]="baseCurrency" type="text" class="form-control" />
+    <button class="btn btn-primary">
+      <i
+        (click)="swapCurrencies()"
+        class="fa-solid fa-arrow-right-arrow-left"
+      ></i>
+    </button>
+    <input [(ngModel)]="secondCurrency" type="text" class="form-control" />
+    <button (click)="convert()" class="btn btn-primary">Convert</button>
+
+    <ng-container *ngIf="exchange$ | async as ex">
+      <div class="input-group" style="margin-top: 20px">
+        <input
+          (input)="firstInput(ex.rate)"
+          [(ngModel)]="baseCurrencyAmount"
+          type="text"
+          class="form-control"
+        />
+        <h1>
+            {{ baseCurrencyAmount * ex.rate }} 
+        </h1>
+      </div>
+    </ng-container>
+  </div>
+
+  <!-- <div *ngIf="rates$ | async as rates">
+    <h1 *ngIf="!hide" >1 {{baseCurrency}} = {{ rates.exchange_rates[secondCurrency]}} {{secondCurrency}}</h1>
+  </div> -->
+</div>
