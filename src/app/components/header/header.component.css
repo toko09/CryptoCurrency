@@ -4,7 +4,16 @@ nav{
     border-top: 1px solid black;
     justify-content: space-between;
 }
-.navbar-nav{
-    overflow-x:scroll;
-}
 
+@media screen and (min-width: 768px) {
+    .navbar-nav {
+      overflow: hidden; /* Hide the scrollbar */
+    }
+  }
+  
+  /* For small screens */
+  @media screen and (max-width: 767px) {
+    .navbar-nav {
+      overflow: auto; /* Show the scrollbar when content overflows */
+    }
+  }
