@@ -1,5 +1,6 @@
 import {  Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { combineLatest, map } from 'rxjs';
 import { CryptoService } from 'src/app/services/crypto.service';
 
 @Component({
@@ -21,6 +22,22 @@ export class CryptoCardComponent  {
   
   cryptoData$ = this.cryptoService.cryptoData$;
   theme$ = this.cryptoService.theme$;
+
+
+
+  // vm$ | async as vm //doesnt work in html
+  vm$ = combineLatest([
+    this.cryptoData$,
+    this.theme$,
+  ]).pipe(
+    map((array) => {
+      const [cryptoData, theme] = array;
+      return {
+        cryptoData,
+        theme
+      };
+    })
+  );
 
   //using these variables for arrows in html
   //to save sorted pages
@@ -55,6 +72,11 @@ export class CryptoCardComponent  {
 
     this.cryptoService.getCrypto();
     sessionStorage.setItem('sortBy', JSON.stringify(''));
+
+    sessionStorage.setItem('sortPrice', JSON.stringify(0));
+    sessionStorage.setItem('sort1H', JSON.stringify(0));
+    sessionStorage.setItem('sort24H', JSON.stringify(0));
+    sessionStorage.setItem('sort7D', JSON.stringify(0));
   }
   //opposite of increaseRank()
   decreaseRank() {
@@ -73,6 +95,11 @@ export class CryptoCardComponent  {
       this.cryptoService.getCrypto();
     }
     sessionStorage.setItem('sortBy', JSON.stringify(''));
+
+    sessionStorage.setItem('sortPrice', JSON.stringify(0));
+    sessionStorage.setItem('sort1H', JSON.stringify(0));
+    sessionStorage.setItem('sort24H', JSON.stringify(0));
+    sessionStorage.setItem('sort7D', JSON.stringify(0));
 
   }
 

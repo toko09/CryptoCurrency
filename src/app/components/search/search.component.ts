@@ -14,7 +14,8 @@ export class SearchComponent  {
 
 
   constructor(private cryptoService: CryptoService, private activatedRoute: ActivatedRoute) { 
-    
+  
+    this.activatedRoute.data.subscribe(r => console.log(r))
   }
   
 

@@ -1,4 +1,4 @@
-<div style="overflow-x: scroll; margin: 0; padding: 0;">
+<div   style="overflow-x: scroll; margin: 0; padding: 0;">
 
   
   <table class="table" [ngClass]="!(theme$ | async) ? 'table-dark' : ''">
@@ -84,41 +84,41 @@
   <tbody *ngIf="cryptoData$ | async as cd">
     <ng-container *ngFor="let crypto of cd; let i = index">
       <tr>
-        <td>{{ cd[i].rank }}</td>
+        <td>{{ crypto.rank }}</td>
         <td>
           <img
-            [src]="linkToSvg + cd[i].symbol.toLowerCase() + '.svg'"
+            [src]="linkToSvg + crypto.symbol.toLowerCase() + '.svg'"
             (error)="handleImageError($event)"
             />
           </td>
-        <td>{{ cd[i].name }}</td>
-        <td>{{ cd[i].price_usd | currency }}</td>
+        <td>{{ crypto.name }}</td>
+        <td>{{ crypto.price_usd | currency }}</td>
         <td
         [ngClass]="{
-          'text-danger': cd[i].percent_change_1h < 0,
-          'text-success': cd[i].percent_change_1h > 0
+          'text-danger': crypto.percent_change_1h < 0,
+          'text-success': crypto.percent_change_1h > 0
         }"
         >
-        {{ cd[i].percent_change_1h }}%
+        {{ crypto.percent_change_1h }}%
       </td>
       <td
       [ngClass]="{
-        'text-danger': cd[i].percent_change_24h < 0,
-        'text-success': cd[i].percent_change_24h > 0
+        'text-danger': crypto.percent_change_24h < 0,
+        'text-success': crypto.percent_change_24h > 0
       }"
       >
-      {{ cd[i].percent_change_24h }}%
+      {{ crypto.percent_change_24h }}%
     </td>
     <td
     [ngClass]="{
-      'text-danger': cd[i].percent_change_7d < 0,
-      'text-success': cd[i].percent_change_7d > 0
+      'text-danger': crypto.percent_change_7d < 0,
+      'text-success': crypto.percent_change_7d > 0
     }"
     >
-          {{ cd[i].percent_change_7d }}%
+          {{ crypto.percent_change_7d }}%
         </td>
-        <td>{{ cd[i].msupply | currency : "EUR" }}</td>
-        <td>{{ cd[i].csupply | currency : "EUR" }}</td>
+        <td>{{ crypto.msupply | currency : "EUR" }}</td>
+        <td>{{ crypto.csupply | currency : "EUR" }}</td>
       </tr>
     </ng-container>
   </tbody>

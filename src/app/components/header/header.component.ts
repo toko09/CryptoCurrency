@@ -23,7 +23,7 @@ export class HeaderComponent {
   } 
   getSearch() {
     this.cryptoService.getSearch(this.searchText);
-    this.router.navigateByUrl(`search/${this.searchText}`);
+    // this.router.navigateByUrl(`search/${this.searchText}`);
     this.router.navigate(['/search', this.searchText])
 
    
