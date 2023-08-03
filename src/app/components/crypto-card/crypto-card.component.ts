@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef } from '@angular/core';
+import {  Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CryptoService } from 'src/app/services/crypto.service';
 
@@ -7,7 +7,7 @@ import { CryptoService } from 'src/app/services/crypto.service';
   templateUrl: './crypto-card.component.html',
   styleUrls: ['./crypto-card.component.css'],
 })
-export class CryptoCardComponent implements AfterViewInit {
+export class CryptoCardComponent  {
   linkToSvg = '../../../assets/cryptocurrency-icons-master/svg/icon/';
   defaultIMG = '../../../assets/cryptocurrency-icons-master/svg/icon/crpt.svg';
 
@@ -17,15 +17,7 @@ export class CryptoCardComponent implements AfterViewInit {
     private cryptoService: CryptoService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private elementRef: ElementRef,
-    private cdr: ChangeDetectorRef
-  ) { }
-  ngAfterViewInit(): void {
-    const tableWidth = this.elementRef.nativeElement.offsetWidth;
-    this.cryptoService.setwidth(tableWidth);
-    this.cdr.detectChanges();
-  }
-
+) { }
   
   cryptoData$ = this.cryptoService.cryptoData$;
   theme$ = this.cryptoService.theme$;
@@ -39,6 +31,8 @@ export class CryptoCardComponent implements AfterViewInit {
   
   //saving starting rank for reload
   starter: number = Number(sessionStorage.getItem('start'));
+
+  
 
   //changes img src to default image
   handleImageError(event: any): void {

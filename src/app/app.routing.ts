@@ -9,7 +9,7 @@ export const APP_ROUTES: Routes = [
         path: 'search', 
         children: [
           {
-            path: '**',
+            path: ':searchedText',
             component: SearchComponent,
           },
         ],

@@ -1,4 +1,4 @@
-<div class="maindiv" [ngClass]="!(theme$ | async) ? 'bg-dark text-white' : ''">
+<div style="overflow-x: scroll;" class="maindiv" [ngClass]="!(theme$ | async) ? 'bg-dark text-white' : ''">
   <h1>Enter currencies</h1>
   <div class="input-group">
     <input [(ngModel)]="baseCurrency" type="text" class="form-control" />
@@ -25,8 +25,4 @@
       </div>
     </ng-container>
   </div>
-
-  <!-- <div *ngIf="rates$ | async as rates">
-    <h1 *ngIf="!hide" >1 {{baseCurrency}} = {{ rates.exchange_rates[secondCurrency]}} {{secondCurrency}}</h1>
-  </div> -->
 </div>

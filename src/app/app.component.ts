@@ -31,6 +31,7 @@ export class AppComponent implements OnInit {
     this.cryptoService.getCrypto();
     this.cryptoService.getGlobalInfo();
     
+    
     // this.cryptoService.getIcons();
 
     

@@ -1,18 +1,21 @@
-<table class="table" [ngClass]="!(theme$ | async) ? 'table-dark' : ''">
-  <thead>
-    <tr>
-      <th scope="col">
-        Rank:
-        <br>
-        <span (click)="decreaseRank()"><i  class="fa-solid fa-arrow-left"></i></span>
+<div style="overflow-x: scroll; margin: 0; padding: 0;">
+
+  
+  <table class="table" [ngClass]="!(theme$ | async) ? 'table-dark' : ''">
+    <thead>
+      <tr>
+        <th scope="col">
+          Rank:
+          <br>
+          <span (click)="decreaseRank()"><i  class="fa-solid fa-arrow-left"></i></span>
         {{ starter }} - {{ starter + 20 }}
         <span (click)="increaseRank()"><i  class="fa-solid fa-arrow-right"></i></span>
       </th>
       <th scope="col">
         <img
-          class="list-group-item col"
-          alt="img"
-          src="../../../assets/cryptocurrency-icons-master/svg/icon/crpt.svg"
+        class="list-group-item col"
+        alt="img"
+        src="../../../assets/cryptocurrency-icons-master/svg/icon/crpt.svg"
         />
       </th>
       <th scope="col">Name</th>
@@ -59,19 +62,19 @@
             >The total market value of a cryptocurrency's circulating supply. It
             is analogous to the free-float capitalization in the stock market.
             Market Cap = Current Price x Circulating Supply.
-
+            
             <a href="">Read More</a>
           </span></a
-        >
-      </th>
-      <th scope="col">
-        Circulating Supply
-        <a class="fa-solid fa-circle-info csupply">
-          <span
+          >
+        </th>
+        <th scope="col">
+          Circulating Supply
+          <a class="fa-solid fa-circle-info csupply">
+            <span
             >The amount of coins that are circulating in the market and are in
             public hands. It is analogous to the flowing shares in the stock
             market.
-
+            
             <a href="">Read More</a></span
           >
         </a>
@@ -86,32 +89,32 @@
           <img
             [src]="linkToSvg + cd[i].symbol.toLowerCase() + '.svg'"
             (error)="handleImageError($event)"
-          />
-        </td>
+            />
+          </td>
         <td>{{ cd[i].name }}</td>
         <td>{{ cd[i].price_usd | currency }}</td>
         <td
-          [ngClass]="{
-            'text-danger': cd[i].percent_change_1h < 0,
-            'text-success': cd[i].percent_change_1h > 0
-          }"
+        [ngClass]="{
+          'text-danger': cd[i].percent_change_1h < 0,
+          'text-success': cd[i].percent_change_1h > 0
+        }"
         >
-          {{ cd[i].percent_change_1h }}%
-        </td>
-        <td
-          [ngClass]="{
-            'text-danger': cd[i].percent_change_24h < 0,
-            'text-success': cd[i].percent_change_24h > 0
-          }"
-        >
-          {{ cd[i].percent_change_24h }}%
-        </td>
-        <td
-          [ngClass]="{
-            'text-danger': cd[i].percent_change_7d < 0,
-            'text-success': cd[i].percent_change_7d > 0
-          }"
-        >
+        {{ cd[i].percent_change_1h }}%
+      </td>
+      <td
+      [ngClass]="{
+        'text-danger': cd[i].percent_change_24h < 0,
+        'text-success': cd[i].percent_change_24h > 0
+      }"
+      >
+      {{ cd[i].percent_change_24h }}%
+    </td>
+    <td
+    [ngClass]="{
+      'text-danger': cd[i].percent_change_7d < 0,
+      'text-success': cd[i].percent_change_7d > 0
+    }"
+    >
           {{ cd[i].percent_change_7d }}%
         </td>
         <td>{{ cd[i].msupply | currency : "EUR" }}</td>
@@ -120,3 +123,5 @@
     </ng-container>
   </tbody>
 </table>
+
+</div>

@@ -11,12 +11,6 @@ import { ActivatedRoute} from '@angular/router';
   providedIn: 'root',
 })
 export class CryptoService {
-  private widthSubject = new BehaviorSubject<number>(0);
-  width$ = this.widthSubject.asObservable();
-  setwidth(width: number) { 
-    this.widthSubject.next(width)
-  }
-
 
   baseUrl = 'https://api.coinlore.net';
   iconUrl = 'https://www.pngwing.com/en/search?q=bitcoin';
@@ -46,7 +40,7 @@ export class CryptoService {
   //switch checks if page was sorted before reload
   //and runs function that will recover sort
   getCrypto() {
-    this.activatedRoute.queryParams.pipe().subscribe((params) => {
+    this.activatedRoute.queryParams.subscribe((params) => {
       this.http
         .get<firstResponse>(`${this.baseUrl}/api/tickers/`, {
           params: {
@@ -60,8 +54,8 @@ export class CryptoService {
 
           let sort = sessionStorage.getItem('sortBy');
 
-          // this.checkPreviousSort();
 
+          
           switch (sort) { 
             case '"Price"':
               this.sortByPrice();
@@ -253,12 +247,11 @@ export class CryptoService {
           
         })
       .subscribe((result) => { 
-        // console.log(result)
         let searchedObject = result.data.find(item => item.symbol.toLocaleLowerCase() === searchText.toLocaleLowerCase());
+
         if (!searchedObject) { 
           searchedObject = result.data.find(item => item.nameid.toLocaleLowerCase() === searchText.toLocaleLowerCase());
         }
-        // console.log(searchedObject)
         this.seachedCrypto$.next(searchedObject!)
       })
     

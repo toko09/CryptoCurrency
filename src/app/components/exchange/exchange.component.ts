@@ -24,7 +24,7 @@ export class ExchangeComponent {
     let  tempCurrency = this.baseCurrency;
     this.baseCurrency = this.secondCurrency;
     this.secondCurrency = tempCurrency
-    // this.getInfo();
+    this.convert();
   }
   convert() { 
     this.cryptoService.convert(this.baseCurrency, this.secondCurrency)

@@ -1,4 +1,4 @@
-<nav  [style.width.px]="width"
+<nav 
   class="navbar navbar-expand-xl p-1"
   [ngClass]="!theme ? 'navbar-dark bg-dark' : 'navbar-light bg-light'"
 >
@@ -41,8 +41,8 @@
         <a class="nav-item nav-link" href="#">Cryptocurrencies: <span id="globan-info">{{ info.coins_count }} </span>  </a>
         <a class="nav-item nav-link" href="#"> Markets: <span id="globan-info">{{ info.active_markets }}</span></a>
         <a class="nav-item nav-link" href="#"> Market Cap:  <span id="globan-info">{{ info.total_mcap | currency: "EUR" }}</span></a>
-        <a class="nav-item nav-link" href="#">BTC Dominance: <span id="globan-info">{{info.btc_d}}%</span></a>
-        <a class="nav-item nav-link" href="#">ETH Dominance: <span id="globan-info">{{info.eth_d}}%</span></a>
+        <a class="nav-item nav-link outside" href="#">BTC Dominance: <span id="globan-info">{{info.btc_d}}%</span></a>
+        <a class="nav-item nav-link outside" href="#">ETH Dominance: <span id="globan-info">{{info.eth_d}}%</span></a>
       </div>
   </nav>
 </ng-container>

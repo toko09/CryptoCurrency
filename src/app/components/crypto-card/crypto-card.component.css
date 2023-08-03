@@ -51,7 +51,9 @@
     width: 300px;
     position: absolute;
     top: 15px;
-  }
+}
+
   table{
     margin-bottom: 0;
+    overflow-x: scroll;
   }
