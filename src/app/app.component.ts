@@ -20,13 +20,14 @@ export class AppComponent implements OnInit {
 
     if (this.start == undefined) {
       this.start = 0;
+      this.router.navigate([], {
+        relativeTo: this.activatedRoute,
+        queryParams: {
+          start: this.start,
+        },
+      });
     }
-    this.router.navigate([], {
-      relativeTo: this.activatedRoute,
-      queryParams: {
-        start: this.start,
-      },
-    });
+    
 
     this.cryptoService.getCrypto();
     this.cryptoService.getGlobalInfo();
