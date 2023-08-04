@@ -17,7 +17,7 @@ export class ExchangeComponent {
   baseCurrencyAmount: number = 1;
   secondCurrencyAmount:number = 1;
 
-  constructor(private router: Router, private cryptoService: CryptoService) { }
+  constructor( private cryptoService: CryptoService) { }
 
   
   swapCurrencies() {

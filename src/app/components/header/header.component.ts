@@ -11,23 +11,17 @@ export class HeaderComponent {
   theme = false;
   searchText: string = '';
   uglyText = ''
-  constructor(private cryptoService: CryptoService, private router: Router, private activatedRoute: ActivatedRoute) {
-    
-  }
+  constructor(private cryptoService: CryptoService, private router: Router) {}
   
   globalInfo$ = this.cryptoService.globalInfo$;
 
   changeTheme() { 
     this.theme = this.cryptoService.changeTheme(this.theme);
-    
   } 
+  
   getSearch() {
     this.cryptoService.getSearch(this.searchText);
-    // this.router.navigateByUrl(`search/${this.searchText}`);
     this.router.navigate(['/search', this.searchText])
-
-   
-    console.log(this.router.url)
   }
 
   

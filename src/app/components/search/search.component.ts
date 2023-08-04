@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { CryptoService } from 'src/app/services/crypto.service';
 
 @Component({
@@ -13,8 +12,7 @@ export class SearchComponent  {
   searchedCrypto$ = this.cryptoService.seachedCrypto$
 
 
-  constructor(private cryptoService: CryptoService, private activatedRoute: ActivatedRoute, private router: Router) { 
-  
-    this.activatedRoute.data.subscribe(r => console.log(r))
-  }}
+  constructor(private cryptoService: CryptoService) { }
+
+}
 
